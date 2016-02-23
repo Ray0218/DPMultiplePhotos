@@ -24,7 +24,9 @@ static const char *select_key = "select_key";
     ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
     [lib assetForURL:assert.defaultRepresentation.url resultBlock:^(ALAsset *asset) {
         ALAssetRepresentation *rep = asset.defaultRepresentation;
-        CGImageRef imageRef = rep.fullResolutionImage;
+        //CGImageRef imageRef = rep.fullResolutionImage;
+        CGImageRef imageRef = rep.fullScreenImage;
+
         UIImage *image = [UIImage imageWithCGImage:imageRef scale:rep.scale orientation:(UIImageOrientation)rep.orientation];
         if (image) {
             returnImage(image);
